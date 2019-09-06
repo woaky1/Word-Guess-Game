@@ -3,7 +3,10 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 var wins = 0;
 var guessesLeft = 15;
 var guessedLetters = [];
-var mysteryLetter = "p"
+var pokedex = [
+    { name: ["p"], blank: ["_"]}
+];
+var wordIndex = 0;
 
 // We're linking parts of the html to variables here so we can diplay outcomes from the javascript on the page.
 var winsText = document.getElementById("wins-text");
@@ -17,13 +20,12 @@ document.onkeyup = function(event) {
     // We record the users choice as a variable.
     var userGuessInput = event.key;
     var userGuess = userGuessInput.toLowerCase();
-    console.log(userGuess);
-
+    
     // Check if the key hit was a letter.
     if (letters.includes(userGuess)) {
         console.log("Yep, that's a letter.")
-
-        if (userGuess === mysteryLetter) {
+        console.log(pokedex[wordIndex].name[0].toString())
+        if (userGuess === pokedex[wordIndex].name[0]) {
             wins++;
             guessesLeft = 15;
             guessedLetters = [];
