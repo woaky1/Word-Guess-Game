@@ -15,7 +15,9 @@ function showQuestion() {
     }
 }
 
-showQuestion();
+function replaceLetter () {
+        document.querySelector("#currentWord").innerHTML = pokedex[questionIndex].name;
+}
 // This is what initiates the events of the game.
 document.onkeyup = function(event) {
     // We record the users choice as a variable.
@@ -25,11 +27,12 @@ document.onkeyup = function(event) {
     console.log(pokedex[questionIndex].blanks);
     console.log(pokedex[questionIndex].name);
     // Time to display the question
-
+    console.log(letters.includes(userGuess));
+    console.log(userGuess === pokedex[questionIndex].name);
     if (letters.includes(userGuess)) {
         if (userGuess === pokedex[questionIndex].name) {
-            document.querySelector("#currentWord").innerHTML = pokedex[questionIndex].name;
-            showQuestion();
+            replaceLetter();
+
         }
     }
 }
