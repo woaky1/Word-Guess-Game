@@ -14,6 +14,11 @@ var guessesLeftText = document.getElementById("guesses-left-text");
 var lettersGuessedText = document.getElementById("guessed-letters-text");
 var currentWordText = document.getElementById("current-word");
 
+// Let's write a function for displaying the blanks.
+if (wordIndex <= 0) {
+    document.querySelector("#current-word").innerHTML = pokedex[wordIndex].blank;
+}
+
 // This is what initiates the events of the game.
 document.onkeyup = function(event) {
 
