@@ -21,11 +21,15 @@ document.onkeyup = function(event) {
     // We record the users choice as a variable.
     var userGuessInput = event.key;
     var userGuess = userGuessInput.toLowerCase();
+    console.log(userGuess);
     console.log(pokedex[questionIndex].blanks);
+    console.log(pokedex[questionIndex].name);
     // Time to display the question
 
-
     if (letters.includes(userGuess)) {
-
+        if (userGuess === pokedex[questionIndex].name) {
+            document.querySelector("#currentWord").innerHTML = pokedex[questionIndex].name;
+            showQuestion();
+        }
     }
 }
