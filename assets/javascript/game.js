@@ -3,6 +3,7 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 var wins = 0;
 var guessesLeft = 15;
 var guessedLetters = [];
+var mysteryLetter = "p"
 
 // We're linking parts of the html to variables here so we can diplay outcomes from the javascript on the page.
 var winsText = document.getElementById("wins-text");
@@ -21,5 +22,22 @@ document.onkeyup = function(event) {
     // Check if the key hit was a letter.
     if (letters.includes(userGuess)) {
         console.log("Yep, that's a letter.")
+
+        if (userGuess === mysteryLetter) {
+            wins++;
+            guessesLeft = 15;
+            guessedLetters = [];
+            console.log("They match.") 
+        } else {
+            guessesLeft--;
+            guessedLetters.push(" " + userGuess);
+        };
+        if (guessesLeft === 0) {
+            guessesLeft = 15;
+            guessedLetters = []; 
+        }
     }
+    winsText.textContent = wins;
+    guessesLeftText.textContent = guessesLeft;
+    lettersGuessedText.textContent = guessedLetters;
 }
