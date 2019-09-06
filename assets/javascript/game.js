@@ -29,8 +29,8 @@ document.onkeyup = function(event) {
     // Check if the key hit was a letter.
     if (letters.includes(userGuess)) {
         console.log("Yep, that's a letter.")
-        console.log(pokedex[wordIndex].name[0].toString())
-        if (userGuess === pokedex[wordIndex].name[0]) {
+        console.log(pokedex[wordIndex].name);
+        if (pokedex[wordIndex].name.includes(userGuess)) {
             wins++;
             guessesLeft = 15;
             guessedLetters = [];
